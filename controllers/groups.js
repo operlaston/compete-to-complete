@@ -21,7 +21,7 @@ groupRouter.get('/:id', async (request, response) => {
     response.json(group)
   } catch (error) {
     console.error('error occurred while trying to get group from id', error)
-    response.status(400).json({error: 'error occurred while trying to get group from id'})
+    response.status(400).json({error:  'error occurred while trying to get group from id'})
   }
 })
 

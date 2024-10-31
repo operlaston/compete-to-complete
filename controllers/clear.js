@@ -3,6 +3,17 @@ const User = require('../models/user')
 const Task = require('../models/task')
 const Group = require('../models/group')
 
+clearRouter.delete('/', async (request, response) => {
+  try {
+    await User.deleteMany({})
+    await Task.deleteMany({})
+    await Group.deleteMany({})
+    response.status(204).end()
+  } catch(error) {
+    response.status(400).json({error: 'failed to delete everything'})
+  }
+})
+
 clearRouter.delete('/users', async (request, response) => {
   try {
     await User.deleteMany({})
